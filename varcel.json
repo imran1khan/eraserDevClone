@@ -1,16 +1,8 @@
 {
-    "routes": [
+    "rewrites": [
         {
-            "src": "/",
-            "dest": "/"
-        },
-        {
-            "src": "/dashboard",
-            "dest": "/"
-        },
-        {
-            "src": "/editor/:id",
-            "dest": "/"
+            "source": "/(.*)",
+            "destination": "/"
         }
     ]
 }
