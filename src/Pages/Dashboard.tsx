@@ -1,5 +1,5 @@
 import { X } from "lucide-react"
-import ProtectedRoute from "../Auth/ProtectedRoute"
+// import ProtectedRoute from "../Auth/ProtectedRoute"
 import DashBoardLeft from "../components/DashBoardLeft"
 import DashBoardRight from "../components/DashBoardRight"
 import DashBoardTable from "../components/DashBoardTable"

@@ -7,7 +7,7 @@ import LandingPage from './Pages/LandingPage.tsx'
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import Dashboard from './Pages/Dashboard.tsx'
 import { Toaster } from 'react-hot-toast'
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
+import {  Routes, Route, HashRouter } from 'react-router-dom'
 
 const onRedirectCallback = (user: any, app_state: any) => {
   console.log({ user, app_state });
