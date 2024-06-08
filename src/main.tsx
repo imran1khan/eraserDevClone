@@ -3,19 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { RecoilRoot } from 'recoil'
-import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import LandingPage from './Pages/LandingPage.tsx'
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import Dashboard from './Pages/Dashboard.tsx'
 import { Toaster } from 'react-hot-toast'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-const router = createBrowserRouter(createRoutesFromElements(
-  <>
-    <Route path='/' element={<LandingPage />} />
-    <Route path='/dashboard' element={<Dashboard />} />
-    <Route path='/editor/:id' element={<App />} />
-  </>
-));
+
 const onRedirectCallback = (user: any, app_state: any) => {
   console.log({ user, app_state });
   // Redirect to a dashboard or home page
@@ -39,6 +32,7 @@ const onRedirectCallback = (user: any, app_state: any) => {
   sendFile();
   window.location.href = '/dashboard';
 };
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RecoilRoot>
@@ -51,10 +45,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       >
         <BrowserRouter>
           <Routes>
-            <Route  path='/' element={<LandingPage />} />
-            <Route  path='/dashboard' element={<Dashboard />} />
-            <Route  path='/editor/:id' element={<App />} />
-
+            <Route path='/' element={<LandingPage />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/editor/:id' element={<App />} />
           </Routes>
         </BrowserRouter>
         <Toaster />
