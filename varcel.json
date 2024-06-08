@@ -1,9 +1,12 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
+    "routes": [
+        {
+            "src": "/dashboard",
+            "dest": "/"
+        },
+        {
+            "src": "/editor/:id",
+            "dest": "/"
+        }
     ]
 }
-  
