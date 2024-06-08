@@ -45,8 +45,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <KindeProvider
     		clientId="9932afa04b9241b3bf005becd78c82be"
         domain="https://exceladrawclone.kinde.com"
-        redirectUri="http://localhost:5173/"
-        logoutUri="http://localhost:5173/"
+        redirectUri="https://eraser-dev-clone.vercel.app/"
+        logoutUri="https://eraser-dev-clone.vercel.app/"
         onRedirectCallback={onRedirectCallback}
     >
     <RouterProvider router={router} />
