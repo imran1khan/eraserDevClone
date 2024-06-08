@@ -18,29 +18,27 @@ export default function Dashboard() {
     const setData = useSetRecoilState(dataArray)
     const newData = useGetALLFiles();
     if (newData) {
-        const fileData=newData.map((v):DataArrayInterface => {
+        const fileData = newData.map((v): DataArrayInterface => {
             return {
                 ...v,
-                authorPic:user?.picture,
-                location:'undefined'
+                authorPic: user?.picture,
+                location: 'undefined'
             }
         })
         setData([...fileData])
     }
 
     return (
-        <ProtectedRoute>
-            <div className="bg-black h-screen text-white flex relative">
-                <InputCard />
-                <div className="bg-gray-800 flex-grow">
-                    <DashBoardLeft />
-                </div>
-                <div className="bg-slate-800 flex-grow-[6] border-l-[2px] border-l-gray-900">
-                    <DashBoardRight />
-                    {newData?(<DashBoardTable />):(<div className="">loading....</div>)}
-                </div>
+        <div className="bg-black h-screen text-white flex relative">
+            <InputCard />
+            <div className="bg-gray-800 flex-grow">
+                <DashBoardLeft />
             </div>
-        </ProtectedRoute>
+            <div className="bg-slate-800 flex-grow-[6] border-l-[2px] border-l-gray-900">
+                <DashBoardRight />
+                {newData ? (<DashBoardTable />) : (<div className="">loading....</div>)}
+            </div>
+        </div>
     )
 }
 
@@ -54,7 +52,7 @@ function InputCard() {
     const [show_crd, setshowCard] = useRecoilState(showCard);
     const [filename, setFileName] = useState('');
     const [data, setData] = useRecoilState(dataArray)
-    const saveFile =async () => {
+    const saveFile = async () => {
         if (!filename || filename === '') {
             return;
         }
@@ -69,7 +67,7 @@ function InputCard() {
                     userid: user?.id || '',
                 })
             });
-            const {res} = await response.json() as Response;
+            const { res } = await response.json() as Response;
             setData([...data, {
                 ...res,
                 location: 'undefined',
