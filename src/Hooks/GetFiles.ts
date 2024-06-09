@@ -6,7 +6,7 @@ export const useGetALLFiles = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await fetch('/api/getFiles');
+                const response = await fetch('https://eraser_clone.mustafaimrankhan9.workers.dev/getFiles');
                 const dataResponce = await response.json() as GetFiles[];
                 setFiles(dataResponce)
             } catch (error) {

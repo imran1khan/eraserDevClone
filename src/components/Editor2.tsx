@@ -25,7 +25,7 @@ function Editor2({ whiteBoardRef, appStateRef, file }: Prop) {
     const saveDataInBackend = async () => {
       const tostId=toast.loading('Waiting...');
       try {
-        const response = await fetch(`http://127.0.0.1:8787/file/${file?.id}`, {
+        const response = await fetch(`https://eraser_clone.mustafaimrankhan9.workers.dev/file/${file?.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

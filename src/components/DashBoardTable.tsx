@@ -85,7 +85,7 @@ const ClickDiv = ({ fileID }: { fileID: string }) => {
     }
     setData(newdata);
     try {
-      await fetch(`/api/file/${fileID}`,{
+      await fetch(`https://eraser_clone.mustafaimrankhan9.workers.dev/file/${fileID}`,{
         method:'DELETE',
       });
     } catch (error) {

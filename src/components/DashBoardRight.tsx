@@ -5,7 +5,6 @@ import { useState } from "react";
 
 function DashBoardRight() {
 
-    // const user=false;
     const menu = [
         {
             id: 1,
