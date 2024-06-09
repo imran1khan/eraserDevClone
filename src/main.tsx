@@ -7,7 +7,7 @@ import LandingPage from './Pages/LandingPage.tsx'
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import Dashboard from './Pages/Dashboard.tsx'
 import { Toaster } from 'react-hot-toast'
-import {  Routes, Route, HashRouter } from 'react-router-dom'
+import {  Routes, Route, BrowserRouter } from 'react-router-dom'
 
 const onRedirectCallback = (user: any, app_state: any) => {
   console.log({ user, app_state });
@@ -43,13 +43,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         logoutUri="https://eraser-dev-clone.vercel.app/"
         onRedirectCallback={onRedirectCallback}
       >
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/editor/:id' element={<App />} />
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
         <Toaster />
       </KindeProvider>
     </RecoilRoot>
