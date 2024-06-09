@@ -5,11 +5,10 @@ import { ExcalidrawElement } from '@excalidraw/excalidraw/types/element/types';
 import { AppState } from '@excalidraw/excalidraw/types/types';
 
 import Editor2 from './components/Editor2';
-// import { useRecoilState } from 'recoil';
-// import { dataArray } from './store/SaveData';
+
 import { useParams } from 'react-router-dom';
 import { useGetALLFiles } from './Hooks/GetFiles';
-// import { GetFiles } from './store/SaveData';
+
 
 
 

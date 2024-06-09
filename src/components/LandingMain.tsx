@@ -1,11 +1,8 @@
 import { ArrowRight } from "lucide-react"
-import { LoginLink } from "./LandingPageHeader"
-import {useKindeAuth} from "@kinde-oss/kinde-auth-react";
-
+import { NavLink } from "react-router-dom"
 
 
 function Main() {
-  const { register,user } = useKindeAuth();
   return (
     <section className="relative bg-gradient-to-b from-neutral-900 via-gray-900 to-neutral-900 text-white">
       <div className="absolute top-28 w-full justify-center flex ">
@@ -32,12 +29,12 @@ function Main() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <LoginLink OnCLICK={user?()=>{}:register} className="flex items-center w-full rounded-lg border border-white bg-neutral-100 px-4 py-2 text-sm font-medium text-black hover:bg-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
+            <NavLink to={'/dashboard'}  className="flex items-center w-full rounded-lg border border-white bg-neutral-100 px-4 py-2 text-sm font-medium text-black hover:bg-neutral-300 hover:text-neutral-900 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
               Get Started
               <p className="ml-2">
                 <ArrowRight size={24} />
               </p>
-            </LoginLink>
+            </NavLink>
           </div>
         </div>
       </div>

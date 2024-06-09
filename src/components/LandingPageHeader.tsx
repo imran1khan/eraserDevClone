@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 
 
 function LandingPageHeader() {
-    const isAuthenticated=true
     return (
         <header className="z-10 backdrop-blur-xl w-full fixed">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
@@ -68,35 +67,11 @@ function LandingPageHeader() {
 
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
-                            {isAuthenticated && (
-                                <>
-                                    <NavLink to={'/dashboard'}>
-                                        <button className="hidden md:block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700">
-                                            <div>Go to Dashboard</div>
-                                        </button>
-                                    </NavLink>
-                                    <LoginLink
-                                        className="block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-500 "
-                                    >
-                                        LogOut
-                                    </LoginLink>
-                                </>
-                            )}
-
-                            {!isAuthenticated && (
-                                <>
-                                    <LoginLink
-                                        className="block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-500 "
-                                    >
-                                        Login
-                                    </LoginLink>
-                                    <LoginLink
-                                        className="hidden md:block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700"
-                                    >
-                                        Register
-                                    </LoginLink>
-                                </>
-                            )}
+                            <NavLink to={'/dashboard'}>
+                                <button className="hidden md:block rounded-lg  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700">
+                                    <div>Go to Dashboard</div>
+                                </button>
+                            </NavLink>
                         </div>
 
                         <button className="block rounded bg-gray-100 p-2.5 text-black transition hover:text-gray-500/75 md:hidden">
@@ -124,12 +99,3 @@ function LandingPageHeader() {
 }
 
 export default LandingPageHeader
-
-
-export function LoginLink({ children, className, OnCLICK }: { children?: React.ReactNode, className?: string, OnCLICK?: () => void }) {
-    return (
-        <div onClick={() => OnCLICK!()} className={className}>
-            {children}
-        </div>
-    );
-}

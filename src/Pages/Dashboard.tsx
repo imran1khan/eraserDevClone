@@ -3,24 +3,20 @@ import DashBoardLeft from "../components/DashBoardLeft"
 import DashBoardRight from "../components/DashBoardRight"
 import DashBoardTable from "../components/DashBoardTable"
 
-
 import { useRecoilState, useSetRecoilState } from "recoil"
 import { dataArray, DataArrayInterface, GetFiles, showCard } from "../store/SaveData"
 import { useState } from "react"
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react"
 import { useGetALLFiles } from "../Hooks/GetFiles"
 
 
-
 export default function Dashboard() {
-    const { user } = useKindeAuth()
     const setData = useSetRecoilState(dataArray)
     const newData = useGetALLFiles();
     if (newData) {
         const fileData = newData.map((v): DataArrayInterface => {
             return {
                 ...v,
-                authorPic: user?.picture,
+                authorPic: '',
                 location: 'undefined'
             }
         })
@@ -47,7 +43,6 @@ interface Response {
 }
 
 function InputCard() {
-    const { user } = useKindeAuth()
     const [show_crd, setshowCard] = useRecoilState(showCard);
     const [filename, setFileName] = useState('');
     const [data, setData] = useRecoilState(dataArray)
@@ -63,14 +58,14 @@ function InputCard() {
                 },
                 body: JSON.stringify({
                     filename: filename,
-                    userid: user?.id || '',
+                    userid: 'kp_4dee3ad83a59459ba829b16a23ecc619',
                 })
             });
             const { res } = await response.json() as Response;
             setData([...data, {
                 ...res,
                 location: 'undefined',
-                authorPic: user?.picture,
+                authorPic: '',
             }])
         } catch (error) {
             console.log(error)
@@ -80,7 +75,7 @@ function InputCard() {
     }
     return (
         <div className={`z-[1] ${show_crd ? 'absolute' : 'hidden'} bg-[#010112]/50 backdrop-blur-md h-screen w-full rounded-md flex justify-center items-center`}>
-            <div id="card" className="bg-[#0d0d1a] opacity-100 h-[15rem] w-[30rem] rounded-md p-3 space-y-3">
+            <div id="card" className="bg-[#141218] opacity-100 h-[15rem] w-[30rem] rounded-md p-3 space-y-3">
                 <div className="flex justify-between">
                     <div className="text-lg">Create New File</div>
                     <X size={16} className="cursor-pointer" onClick={() => setshowCard(false)} />
