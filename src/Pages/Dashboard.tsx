@@ -51,7 +51,7 @@ function InputCard() {
             return;
         }
         try {
-            const response = await fetch('/api/makeFile', {
+            const response = await fetch('https://eraser_clone.mustafaimrankhan9.workers.dev/makeFile', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
