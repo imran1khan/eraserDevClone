@@ -1,10 +1,10 @@
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+
 import { Search, Send } from "lucide-react";
 import { useState } from "react";
 
 
 function DashBoardRight() {
-    const { user } = useKindeAuth();
+
     // const user=false;
     const menu = [
         {
@@ -57,7 +57,6 @@ function DashBoardRight() {
                         <div onMouseEnter={()=>setShowname(true)} onMouseLeave={()=>setShowname(false)} className={`cursor-pointer`}>
                             <img
                                 src={
-                                    user?.picture ??
                                     "https://img.freepik.com/free-vector/graphic-designer-man_78370-159.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709251200&semt=ais"
                                 }
                                 alt="logo"
@@ -67,7 +66,7 @@ function DashBoardRight() {
                         <div className={`p-1 bg-slate-600 outline-none border-none rounded-md
                          ${showname?"absolute top-[40px] w-[5rem]":"hidden"}`}>
                             <div className="text-white  ">
-                                {user?.given_name! + " " + user?.family_name!}
+                                username
                             </div>
                         </div>
                     </div>
